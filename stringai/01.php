@@ -73,12 +73,7 @@ $tiffany = "Breakfast at Tiffany's";
 $odyssey = '2001: A Space Odyssey';
 $life = "It's a Wonderful Life";
 function istrinti_balses($string){
-    $string = str_replace('a', '', strtolower($string));
-    $string = str_replace('e', '', strtolower($string));
-    $string = str_replace('i', '', strtolower($string));
-    $string = str_replace('o', '', strtolower($string));
-    $string = str_replace('u', '', strtolower($string));
-    $string = str_replace('y', '', strtolower($string));
+    $string = preg_replace('/[aeiouy]/', '', strtolower($string));
     return $string;
 }
 echo $american . '<br>';
@@ -140,3 +135,13 @@ echo '---------------PAPILDOMAS 11 ----------------<br>';
 // 11. Parašykite kodą, kuris generuotų atsitiktinį stringą su 10 atsitiktine tvarka išdėliotų
 // žodžių, o žodžius generavimui imtų iš 9-me uždavinyje pateiktų dviejų stringų. Žodžiai
 // neturi kartotis. (reikės masyvo)
+
+$string =array_merge(explode(" ",$pirmas), explode(" ",$antras));
+$kiek = count($string);
+$random = [];
+while(count($random)< 10 ){
+    array_push($random, $string[rand(0,$kiek-1)]);
+    $random = array_unique($random);
+}
+
+print_r($random);
