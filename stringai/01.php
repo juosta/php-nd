@@ -44,7 +44,7 @@ echo '---------------------4-----------------------------<br>';
 // pavardės kintamųjų raidžių. Jį atspausdinti.
 $vardas = 'Cillian';
 $pavarde = 'Murphy';
-$trecias = substr($vardas,strlen($vardas)-3,strlen($vardas)-1) . substr($pavarde,strlen($pavarde)-3,strlen($pavarde)-1);
+$trecias = substr($vardas,strlen($vardas)-3,3) . substr($pavarde,strlen($pavarde)-3,3);
 echo $trecias;
 
 echo '<br>';
@@ -53,7 +53,7 @@ echo '---------------------5-----------------------------<br>';
 // mažąsias) pakeisti žvaigždutėm “*”. Rezultatą atspausdinti.
 $american = 'An American in Paris';
 
-echo str_replace('a','*',strtolower($american));
+echo str_ireplace('a','*',$american);
 
 echo '<br>';
 echo '---------------------6-----------------------------<br>';
@@ -61,7 +61,7 @@ echo '---------------------6-----------------------------<br>';
 // mažąsias) raides. Rezultatą atspausdinti.
 $american = 'An American in Paris';
 
-echo substr_count(strtolower($american), 'a');
+echo 'A raidziu sakinyje: ' . substr_count(strtolower($american), 'a');
 echo '<br>';
 echo '---------------------7-----------------------------<br>';
 // 7. Sukurti kintamąjį su stringu: “An American in Paris”. Jame ištrinti visas balses. Rezultatą
@@ -106,14 +106,14 @@ function kiekzodziu($str){
     $arr = explode(" ",$str);
     for ($i=0; $i < count($arr); $i++) { 
         $zodis = $arr[$i];
-        if (strlen($zodis) <= 5){
+        if (mb_strlen($zodis) <= 5){
             $kiek++;
         }
     }
     return $kiek;
 }
-echo kiekzodziu($pirmas) . '<br>';
-echo kiekzodziu($antras);
+echo 'trumpesnių arba lygių nei 5 raidės: ' . kiekzodziu($pirmas) . '<br>';
+echo 'trumpesnių arba lygių nei 5 raidės: ' . kiekzodziu($antras);
 
 echo '<br>';
 echo '---------------------10----------------------------<br>';
@@ -143,5 +143,5 @@ while(count($random)< 10 ){
     array_push($random, $string[rand(0,$kiek-1)]);
     $random = array_unique($random);
 }
-
 print_r($random);
+
