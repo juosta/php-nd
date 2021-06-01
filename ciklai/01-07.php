@@ -221,30 +221,3 @@ if( $petras > $kazys)
 }
 
 echo '<hr>';
-// 8. Reikia nupaišyti pilnavidurį rombą, taip pat, kaip ir pilnavidurį kvadratą
-// (https://lt.wikipedia.org/wiki/Rombas), kurio aukštis 21 eilutė. Reikia
-// padaryti, kad kiekviena rombo žvaigždutė būtų atsitiktinės RGB spalvos
-// (perkrovus puslapį spalvos turi keistis).
-
-// 9. Panaudokite funkciją microtime(). Paskaičiuokite kiek sekundžių
-// užtruks kodą:
-// $c = "10 bezdzioniu \n suvalge 20 bananu.";
-// Įvykdyti 1 milijoną kartų ir palyginkite kiek užtruks įvykdyti kodą:
-// $c = '10 bezdzioniu \n suvalge 20 bananu.';
-// (Stringas viengubose ir dvigubose kabutėse)
-// 10. Sumodeliuokite vinies kalimą. Įkalimo gylį sumodeliuokite
-// pasinaudodami rand() funkcija. Vinies ilgis 8.5cm (pilnai sulenda į
-// lentą).
-// a) “Įkalkite” 5 vinis mažais smūgiais. Vienas smūgis vinį įkala 5-20
-// mm. Suskaičiuokite kiek reikia smūgių.
-// b) “Įkalkite” 5 vinis dideliais smūgiais. Vienas smūgis vinį įkala 20-30
-// mm, bet yra 50% tikimybė (pasinaudokite rand() funkcija
-// tikimybei sumodeliuoti), kad smūgis nepataikys į vinį.
-// Suskaičiuokite kiek reikia smūgių.
-
-// 11. Sugeneruokite stringą, kurį sudarytų 50 atsitiktinių skaičių nuo 1 iki 200,
-// atskirtų tarpais. Skaičiai turi būti unikalūs (t.y. nesikartoti).
-// Sugeneruokite antrą stringą, pasinaudodami pirmu, palikdami jame tik
-// pirminius skaičius (t.y tokius, kurie dalinasi be liekanos tik iš 1 ir patys
-// savęs). Skaičius stringe sudėliokite didėjimo tvarka, nuo mažiausio iki
-// didžiausio.
