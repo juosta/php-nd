@@ -79,14 +79,16 @@ echo '<hr>';
 echo '-----------------4---------------------<br>';
 $perimetras=100;
 $krastine = ($perimetras / 4)+1;
+//$krastine = 100;
 ?>
 <style>
   .kvadratas {
-      position: relative;
-  width: fit-content;
+    /* overflow-wrap: break-word;
+    width: fit-content; */
+    white-space: nowrap;
   }
   .kvadratas span{
-      
+      /* width:100%; */
     padding: 3px;
   }
 </style>
@@ -95,12 +97,22 @@ $krastine = ($perimetras / 4)+1;
 echo "<div class='kvadratas' id='kvadratas'>";
 for ($i = 0 ; $i < $krastine ; $i++)
 {
+    
     for ($j = 0 ; $j < $krastine ; $j++)
     {
-    echo '<span>* </span>';
+        if($i==$j){
+            echo '<span class="red">* </span>';
+        }
+        elseif($i+$j == $krastine-1){
+            echo '<span class="red">* </span>';
+        }
+        else {
+         echo '<span>* </span>';
+        }
     }
     echo '<br>';
 }
+
 echo '</div>';
 
 
@@ -109,6 +121,15 @@ echo '<hr>';
 // 5. Prieš tai nupieštam kvadratui nupieškite raudonas istrižaines.
 ?>
 <style>
+  .red{
+      color: red;
+  }
+</style>
+<!-- Variantas vien su css(linijos nupiesimas) -->
+<!-- <style>
+.kvadratas {
+     position: relative;
+  }
   .kvadratas::before{
       content: '';
       position: absolute;
@@ -129,7 +150,7 @@ echo '<hr>';
       background-color: red;
   transform: rotate(135deg);
   }
-</style>
+</style> -->
 <?php
 // 6. Metam monetą. Monetos kritimo rezultatą imituojam rand() funkcija,
 // kur 0 yra herbas, o 1 - skaičius. Monetos metimo rezultatus išvedame į
