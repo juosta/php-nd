@@ -158,15 +158,56 @@ echo '<hr>';
 // Suprogramuokite keturis skirtingus scenarijus kai monetos metimą
 // stabdome:
 // a) Iškritus herbui;
+echo '-----------------6a---------------------<br>';
+$iskritoHerbas = false;
+do {
+    $metimas = rand(0,1);
+    if($metimas == 0){
+        echo 'H';
+        $iskritoHerbas = true;
+    } else {
+        echo 'S';
+    }
+} while (!$iskritoHerbas);
+
+echo '<br>';
 // b) Tris kartus iškritus herbui;
+echo '-----------------6b---------------------<br>';
+$kiek = 0;
+do {
+    $metimas = rand(0,1);
+    if($metimas == 0){
+        echo 'H';
+        $kiek++;
+    } else {
+        echo 'S';
+    }
+} while ($kiek < 3);
+echo '<br>';
 // c) Tris kartus iš eilės iškritus herbui;
+echo '-----------------6c---------------------<br>';
+$kiek = 0;
+do {
+    $metimas = rand(0,1);
+    if($metimas == 0){
+        echo 'H';
+        $kiek++;
+    } else {
+        echo 'S';
+        $kiek = 0;
+    }
+} while ($kiek < 3);
+echo '<hr>';
 // 7. Kazys ir Petras žaidžiai šaškėm. Petras surenka taškų kiekį nuo 10 iki 20,
 // Kazys surenka taškų kiekį nuo 5 iki 25. Vienoje eilutėje išvesti žaidėjų
 // vardus su taškų kiekiu ir “Partiją laimėjo: laimėtojo vardas”. Taškų kiekį
 // generuokite funkcija rand(). Žaidimą laimi tas, kas greičiau surenka 222
-
 // taškus. Partijas kartoti tol, kol kažkuris žaidėjas pirmas surenka 222 arba
 // daugiau taškų.
+echo '-----------------6c---------------------<br>';
+
+
+echo '<hr>';
 // 8. Reikia nupaišyti pilnavidurį rombą, taip pat, kaip ir pilnavidurį kvadratą
 // (https://lt.wikipedia.org/wiki/Rombas), kurio aukštis 21 eilutė. Reikia
 // padaryti, kad kiekviena rombo žvaigždutė būtų atsitiktinės RGB spalvos
