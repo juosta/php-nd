@@ -44,8 +44,7 @@ echo '---------------------4-----------------------------<br>';
 // pavardės kintamųjų raidžių. Jį atspausdinti.
 $vardas = 'Cillian';
 $pavarde = 'Murphy';
-
-$trecias = $vardas[strlen($vardas)-1] . $pavarde[strlen($pavarde)-1];
+$trecias = substr($vardas,strlen($vardas)-3,strlen($vardas)-1) . substr($pavarde,strlen($pavarde)-3,strlen($pavarde)-1);
 echo $trecias;
 
 echo '<br>';
@@ -135,7 +134,8 @@ echo '---------------PAPILDOMAS 11 ----------------<br>';
 // 11. Parašykite kodą, kuris generuotų atsitiktinį stringą su 10 atsitiktine tvarka išdėliotų
 // žodžių, o žodžius generavimui imtų iš 9-me uždavinyje pateiktų dviejų stringų. Žodžiai
 // neturi kartotis. (reikės masyvo)
-
+$pirmas = preg_replace('/[.,]/', '', $pirmas);
+$antras = preg_replace('/[,.]/', '', $antras);
 $string =array_merge(explode(" ",$pirmas), explode(" ",$antras));
 $kiek = count($string);
 $random = [];
