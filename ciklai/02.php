@@ -205,7 +205,22 @@ echo '<hr>';
 // taškus. Partijas kartoti tol, kol kažkuris žaidėjas pirmas surenka 222 arba
 // daugiau taškų.
 echo '-----------------6c---------------------<br>';
-
+$kazys=0;
+$petras= 0;
+while ($petras < 222 && $kazys < 222) {
+    $petras += rand(10,20);
+    $kazys += rand(5,25);
+} 
+if( $petras > $kazys)
+{
+    echo 'laimejo Petras' ;
+} elseif ($petras < $kazys)
+{
+    echo 'laimejo Kazys' ;
+} else 
+{
+    echo 'laimejo draugyste' ;
+}
 
 echo '<hr>';
 // 8. Reikia nupaišyti pilnavidurį rombą, taip pat, kaip ir pilnavidurį kvadratą
