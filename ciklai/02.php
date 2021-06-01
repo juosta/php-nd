@@ -42,7 +42,7 @@ for ($i = 1 ; $i <= 300 ; $i++)
     }
 }
 echo '</div>';
-echo "<h1>Skaiciu, didesniu uz 150, yra $kiek.</h1>";
+echo "<h1 style='font-size: 22px;'>Skaiciu, didesniu uz 150, yra $kiek.</h1>";
 echo '<hr>';
 // 3. Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki atsitiktinio
 // skaičiaus tarp 3000 - 4000 pvz(aibė nuo 1 iki 3476), kurie dalijasi iš 77 be
@@ -50,6 +50,20 @@ echo '<hr>';
 // neturi būti. Jeigu reikia, panaudokite css, kad visi rezultatai matytųsi
 // ekrane.
 echo '-----------------3---------------------<br>';
+$daliklis = 78;
+$sk = rand(3000,4000);
+echo "<div style='overflow-wrap: break-word;'>";
+echo $daliklis;
+for ($i = $daliklis+1 ; $i <= $sk ; $i++)
+{
+    
+    if ($i%$daliklis === 0)
+    {
+        echo ', ';
+        echo $i;
+    }
+}
+echo '</div>';
 
 echo '<hr>';
 // 4. Nupieškite kvadratą iš “*”, kurio kraštines sudaro 100 “*”. Panaudokite
@@ -63,10 +77,60 @@ echo '<hr>';
 // * * * * * * * * * * *
 // * * * * * * * * * * *
 echo '-----------------4---------------------<br>';
+$perimetras=100;
+$krastine = ($perimetras / 4)+1;
+?>
+<style>
+  .kvadratas {
+      position: relative;
+  width: fit-content;
+  }
+  .kvadratas span{
+      
+    padding: 3px;
+  }
+</style>
+
+<?php
+echo "<div class='kvadratas' id='kvadratas'>";
+for ($i = 0 ; $i < $krastine ; $i++)
+{
+    for ($j = 0 ; $j < $krastine ; $j++)
+    {
+    echo '<span>* </span>';
+    }
+    echo '<br>';
+}
+echo '</div>';
+
 
 echo '<hr>';
 
 // 5. Prieš tai nupieštam kvadratui nupieškite raudonas istrižaines.
+?>
+<style>
+  .kvadratas::before{
+      content: '';
+      position: absolute;
+      top:-20%;
+      left: 50%;
+      bottom: -18%;
+      width: 1px;
+      background-color: red;
+  transform: rotate(45deg);
+  }
+  .kvadratas::after{
+      content: '';
+      position: absolute;
+      top:-20%;
+      left: 50%;
+      bottom: -19%;
+      width: 1px;
+      background-color: red;
+  transform: rotate(135deg);
+  }
+</style>
+<?php
 // 6. Metam monetą. Monetos kritimo rezultatą imituojam rand() funkcija,
 // kur 0 yra herbas, o 1 - skaičius. Monetos metimo rezultatus išvedame į
 // ekraną atskiroje eilutėje: “S” jeigu iškrito skaičius ir “H” jeigu herbas.
