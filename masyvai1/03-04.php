@@ -25,11 +25,12 @@ for ($i = 0; $i < $masyvo_dydis; $i++)
 }
 echo '<br>';
 echo "A raidziu: $a, B raidziu: $b, C raidziu: $c, D raidziu: $d";
-
+echo '<br>';
 // 4. Išrūšiuokite 3 uždavinio masyvą pagal abecėlę.
 sort($masyvas);
-for ($i = 0; $i < $masyvo_dydis; $i++)
+foreach($masyvas as $val)
+//for ($i = 0; $i < $masyvo_dydis; $i++)
 {
-    echo strval($masyvas[$i]) . ' ';
+    echo strval($val) . ' ';
 }
 echo '<br>';

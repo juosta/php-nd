@@ -14,9 +14,10 @@ echo '<hr>';
 // Naudodamiesi 1 uždavinio masyvu:
 // a) Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
 $kiek = 0;
-for($i =0; $i < $masyvo_dydis;$i++)
+foreach ($masyvas as $value) 
+//for($i =0; $i < $masyvo_dydis;$i++)
 {
-    if($masyvas[$i] > 10){
+    if($value > 10){
         $kiek++;
     }
 }
@@ -43,9 +44,10 @@ echo "<h3>Poriniu indeksu reiksmiu suma $poriniu_suma</h3>";
 // d) Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo
 // reikšmes minus tos reikšmės indeksas;
 $naujas_masyvas = [];
-for($i =0; $i < $masyvo_dydis;$i++)
+foreach( $masyvas as $i => $val)
+//for($i =0; $i < $masyvo_dydis;$i++)
 {   
-    $elementas = $masyvas[$i]-$i;
+    $elementas = $val-$i;
     array_push($naujas_masyvas,$elementas);
 }
 var_dump($naujas_masyvas);
@@ -64,13 +66,14 @@ echo '<hr>';
 // sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
 $porinis_masyvas = [];
 $neporinis_masyvas = [];
-for($i =0; $i <= $naujas_masyvo_dydis;$i++)
+foreach( $naujas_masyvas as $i => $val)
+//for($i =0; $i <= $naujas_masyvo_dydis;$i++)
 {
-    if($naujas_masyvas[$i] % 2 == 0){
-        array_push($porinis_masyvas,$naujas_masyvas[$i]);
+    if($i % 2 == 0){
+        array_push($porinis_masyvas,$val);
         }
     else{
-        array_push($neporinis_masyvas,$naujas_masyvas[$i]);
+        array_push($neporinis_masyvas,$val);
         }
 }
 echo '<h4>Porinis masyvas:</h4>';
