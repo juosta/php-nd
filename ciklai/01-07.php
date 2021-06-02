@@ -50,13 +50,12 @@ echo '<hr>';
 // neturi būti. Jeigu reikia, panaudokite css, kad visi rezultatai matytųsi
 // ekrane.
 echo '-----------------3---------------------<br>';
-$daliklis = 78;
+$daliklis = 77;
 $sk = rand(3000,4000);
 echo "<div style='overflow-wrap: break-word;'>";
 echo $daliklis;
 for ($i = $daliklis+1 ; $i <= $sk ; $i++)
 {
-    
     if ($i%$daliklis === 0)
     {
         echo ', ';
@@ -83,12 +82,9 @@ $krastine = ($perimetras / 4)+1;
 ?>
 <style>
   .kvadratas {
-    /* overflow-wrap: break-word;
-    width: fit-content; */
     white-space: nowrap;
   }
   .kvadratas span{
-      /* width:100%; */
     padding: 3px;
   }
 </style>
