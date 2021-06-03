@@ -42,7 +42,6 @@ echo '<br>';
 $unikalus_masyvas = array_unique($comb_masyvas);
 $unikalios_kombinacijos = count($unikalus_masyvas);
 $unikalios_reiksmes = 0;
-$uni_reiks_masyvas=[];
 $pasikartojimu_masyvas = array_count_values($comb_masyvas);
 for($i = 0; $i < count($pasikartojimu_masyvas); $i++){
     if (array_values($pasikartojimu_masyvas)[$i] == 1){

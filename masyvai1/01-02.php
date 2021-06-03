@@ -7,7 +7,8 @@ for($i =0; $i < $masyvo_dydis;$i++)
 {
     array_push($masyvas,rand(5,25));
 }
-var_dump($masyvas);
+echo '<pre>';
+print_r($masyvas);
 
 echo '<hr>';
 
@@ -26,7 +27,8 @@ echo "<h3> Masyve yra $kiek reiksmes(-iu), didesniu uz 10.</h3>";
 // b) Raskite didžiausią masyvo reikšmę ir jos indeksą;
 
 $didziausias_indeksas = 0;
-for($i =1; $i < $masyvo_dydis;$i++)
+foreach ($masyvas as $i => $value) 
+//for($i =1; $i < $masyvo_dydis;$i++)
 {
     if($masyvas[$i] > $masyvas[$didziausias_indeksas]){
         $didziausias_indeksas=$i;
@@ -50,7 +52,7 @@ foreach( $masyvas as $i => $val)
     $elementas = $val-$i;
     array_push($naujas_masyvas,$elementas);
 }
-var_dump($naujas_masyvas);
+print_r($naujas_masyvas);
 
 echo '<hr>';
 // e) Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo
@@ -60,7 +62,7 @@ for($i =$masyvo_dydis; $i <= $naujas_masyvo_dydis;$i++)
 {   
     array_push($naujas_masyvas,rand(5,25));
 }
-var_dump($naujas_masyvas);
+print_r($naujas_masyvas);
 echo '<hr>';
 // f) Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti
 // sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
@@ -77,10 +79,10 @@ foreach( $naujas_masyvas as $i => $val)
         }
 }
 echo '<h4>Porinis masyvas:</h4>';
-var_dump($porinis_masyvas);
+print_r($porinis_masyvas);
 echo '<br>';
 echo '<h4>Neporinis masyvas:</h4>';
-var_dump($neporinis_masyvas);
+print_r($neporinis_masyvas);
 
 echo '<hr>';
 // g) Pirminio masyvo elementus su poriniais indeksais padarykite
@@ -91,12 +93,13 @@ for($i =2; $i < $masyvo_dydis;$i+=2)
         $masyvas[$i]=0;
     }
 }
-var_dump($masyvas);
+print_r($masyvas);
 echo '<hr>';
 // h) Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė
 // didesnė už 10;
 $ind = 0;
-for($i =0; $i < $masyvo_dydis;$i++)
+foreach ($masyvas as $i => $value) 
+//for($i =0; $i < $masyvo_dydis;$i++)
 {
     if($masyvas[$i] > 10){
         $ind = $i;
@@ -111,5 +114,5 @@ for($i =2; $i < $masyvo_dydis;$i+=2)
 {
         unset($masyvas[$i]);
 }
-var_dump($masyvas);
+print_r($masyvas);
 echo '<hr>';
