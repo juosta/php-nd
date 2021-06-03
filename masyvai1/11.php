@@ -31,5 +31,6 @@ for($i = 0; $i < $middle-1; $i++)
     unset($random1[array_keys($random1, $maxval)[0]]);
     }
 }
-print_r($isrusiuotas);
 echo '<br>';
+ksort($isrusiuotas);
+print_r($isrusiuotas);
