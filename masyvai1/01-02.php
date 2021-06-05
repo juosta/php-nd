@@ -30,7 +30,7 @@ $didziausias_indeksas = 0;
 foreach ($masyvas as $i => $value) 
 //for($i =1; $i < $masyvo_dydis;$i++)
 {
-    if($masyvas[$i] > $masyvas[$didziausias_indeksas]){
+    if($value > $masyvas[$didziausias_indeksas]){
         $didziausias_indeksas=$i;
     }
 }
@@ -43,6 +43,7 @@ for($i =2; $i < $masyvo_dydis;$i+=2)
     $poriniu_suma+=$masyvas[$i];
 }
 echo "<h3>Poriniu indeksu reiksmiu suma $poriniu_suma</h3>";
+
 // d) Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo
 // reikšmes minus tos reikšmės indeksas;
 $naujas_masyvas = [];
