@@ -4,7 +4,7 @@
 // reikšmę nuo 0 iki 10 įrašykite tiesiogiai.
 echo '<h3>8.</h3>';
 echo '<pre>';
-foreach (range(1, 10) as $keybig => &$val) {
+foreach (range(1, 10) as $keybig => $_) {
     $sk = rand(0,5);
     if($sk == 0){
         $masyvas[$keybig] = rand(0,10);
@@ -14,7 +14,6 @@ foreach (range(1, 10) as $keybig => &$val) {
         }
     }
 }
-unset($val);
 print_r($masyvas);
 
 echo '<hr>';
