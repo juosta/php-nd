@@ -7,10 +7,11 @@
 echo '<pre>';
 $x='#%+*@裡';
 $x = ['#','%', '+', '*','@', '裡' ];
+$y = '0123456789ABCDEF';
 foreach (range(1, 10) as $keybig => $_) {
     foreach (range(1, 10) as $keysmall => $_) {
         $masyvas[$keybig][$keysmall]['value'] = $x[rand(0,5)];
-        $masyvas[$keybig][$keysmall]['color'] = '#'. rand(0,9) . rand(0,9) . rand(0,9) . rand(0,9) . rand(0,9). rand(0,9);
+        $masyvas[$keybig][$keysmall]['color'] = '#'. $y[rand(0,15)] . $y[rand(0,15)] . $y[rand(0,15)] . $y[rand(0,15)] . $y[rand(0,15)]. $y[rand(0,15)];
     }
 }
 //print_r($masyvas);
