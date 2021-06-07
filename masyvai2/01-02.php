@@ -14,7 +14,7 @@ foreach($masyvas as &$el)
 }
 unset($el);
 unset($val);
-print_r($masyvas);
+//print_r($masyvas);
 echo '<hr>';
 // Naudodamiesi 1 uždavinio masyvu:
 echo '<h2>2.a</h2>';
