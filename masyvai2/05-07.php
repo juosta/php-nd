@@ -4,7 +4,6 @@
 //  iki 100. 
 echo '<h3>5.</h3>';
 echo '<pre>';
-$arr = [];
 $masyvas = array_fill(0,30,['user_id'=>'','place_in_row'=>'']);
 
 foreach ($masyvas as $key => &$val) {
