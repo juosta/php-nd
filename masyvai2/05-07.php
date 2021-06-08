@@ -4,15 +4,28 @@
 //  iki 100. 
 echo '<h3>5.</h3>';
 echo '<pre>';
-$masyvas = array_fill(0,30,['user_id'=>'','place_in_row'=>'']);
+// $masyvas = array_fill(0,30,['user_id'=>'','place_in_row'=>'']);
+// foreach ($masyvas as $key => &$val) {
+//     $val['user_id']=rand(1,1000000);
+//     $val['place_in_row']= rand(0,100);
+// }
+// unset($val);
+// print_r($masyvas);
 
-foreach ($masyvas as $key => &$val) {
-    $val['user_id']=rand(1,1000000);
-    $val['place_in_row']= rand(0,100);
-}
-unset($val);
+$masyvas = [];
+do {
+    $uid = rand(1,1000000);
+    foreach($masyvas as $user){
+        if($user['user_id'] == $uid){
+            continue 2;
+        }
+    }
+    $masyvas[] = [
+        'user_id'=>$uid,
+        'place_in_row'=>rand(0,100)
+    ];
+} while (count($masyvas) < 30);
 print_r($masyvas);
-
 echo '<hr>';
 // Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal 
 // place_in_row mažėjančia tvarka.
@@ -35,8 +48,8 @@ echo '<hr>';
 echo '<h3>7.</h3>';
 foreach($masyvas as &$el)
 {
-        $el['name'] = generuotiAtsitiktiniStr(rand(5,15));
-        $el['surname']=generuotiAtsitiktiniStr(rand(5,15));
+        $el['name'] = ucfirst(generuotiAtsitiktiniStr(rand(5,15)));
+        $el['surname']=ucfirst(generuotiAtsitiktiniStr(rand(5,15)));
 }
 unset($el);
 print_r($masyvas);
