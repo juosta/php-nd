@@ -15,10 +15,10 @@
     <title>Get Post mygtukai</title>
 </head>
 <body>
-    <form action="http://localhost/php-nd/web-mechanika/06/index.php" method="get">
+    <form action="http://localhost/php-nd/web-mechanika/06/" method="get">
     <button type="submit">GET button</button>
     </form>
-    <form action="http://localhost/php-nd/web-mechanika/06/index.php" method="post">
+    <form action="http://localhost/php-nd/web-mechanika/06/" method="post">
     <button type="submit">POST button</button>
     </form>
 </body>
@@ -31,7 +31,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         background-color: #80ff00;
     }
     </style>';
-    echo $_SERVER['REQUEST_METHOD'];
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     echo  '<style>
@@ -39,6 +38,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
          background-color: #ffff4d;
      }
      </style>';
+
+    // 7 uzd Pakartokite 6 uždavinį. Papildykite jį kodu, kuris naršyklę po POST metodo peradresuotų tuo pačiu adresu (t.y. į patį save) jau GET metodu.
     //  header('Location: http://localhost/php-nd/web-mechanika/06'); // get
     //  die;
  }
