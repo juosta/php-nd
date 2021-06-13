@@ -7,10 +7,17 @@ apie laimėjimą ir vėl leidžiama suvesti žaidėjų vardus ir pradėti žaidi
 <?php
 session_start();
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+    
 header("Location: http://localhost/php-nd/web-mechanika/11/?name1=" . $_GET['name1'] . "&name2=" . $_GET['name2'] . '&rolled=0');
 die;
 }
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    // request 30 minates ago
+    session_destroy();
+    session_unset();
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,36 +37,44 @@ die;
     <?php
     
     if(!isset($_GET['name1']) and !isset($_GET['name2'])){
-        echo '<div>
+        echo '<div class="form">
         <form action="http://localhost/php-nd/web-mechanika/11/" method="get">
-        <label for="name1">Pirmo žaidėjo vardas</label>
+        <label for="name1"><h3>Pirmo žaidėjo vardas</h3></label>
         <input type="text" name="name1" id="name1" class="form-control">
         <br>
-        <label for="name2">Antro žaidėjo vardas</label>
+        <label for="name2"><h3>Antro žaidėjo vardas</h3></label>
         <input type="text" name="name2" id="name2" class="form-control">
         <br>
         <button type="submit" class="btn btn-primary">PRADĖTI</button>
         </form>
         </div>  ';
         } else {
-            $player1 = $_GET['name1'];
-            $player2 = $_GET['name2'];
-
+            if($_GET['name1'] == null){
+                $player1 = "Žaidėjas 1";
+            } else {
+                $player1 = $_GET['name1'];
+             }   
+            if($_GET['name2'] == ""){
+                $player2 = "Žaidėjas 2";
+            } else {
+                $player2 = $_GET['name2'];
+            }
+            _d($_GET);
             ?>
             <div class="zaidimo_laukas row">
                 <div class="valdymas col-4"> 
                     <h3>Eilė žaidėjui:</h3>
                     <?php
                     if(!isset($_SESSION["current_player"])){
-                        $_SESSION["current_player"] = $_GET['name1'];
+                        $_SESSION["current_player"] = $player1;
                     }
                     if(isset($_GET['rolled'])){
                         if($_SESSION['current_player'] == $player1){
                             isset($_SESSION['score1']) ? $_SESSION['score1']+=rand(1,6) : $_SESSION['score1'] = rand(1,6);
-                            $_SESSION['current_player'] = $_GET['name2'];
+                            $_SESSION['current_player'] = $player2;
                         } elseif ($_SESSION['current_player'] == $player2){
                             isset($_SESSION['score2']) ? $_SESSION['score2']+=rand(1,6) : $_SESSION['score2'] = rand(1,6);
-                            $_SESSION['current_player'] = $_GET['name1'];
+                            $_SESSION['current_player'] = $player1;
                         }
                     }
                     ?>
