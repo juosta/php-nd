@@ -10,20 +10,17 @@ forma išnyktų ir atsirastų skaičius, rodantis kiek buvo pažymėta checkboks
     <title>9 uzduotis</title>
 </head>
 <?php
-$kiek_paspausta = count($_POST);
-//echo $kiek_paspausta;
- if(isset($_GET) && $kiek_paspausta != 0){
-    $bodytext='<body style=\'background-color: white;color:black;\'>';
-    echo $bodytext;
-    echo "<h3>$kiek_paspausta</h3>";
-    echo '</body>
-    </html>';
-    // header('Location: http://localhost/php-nd/web-mechanika/09/'); 
-    // die;
-}else {
+ if(isset($_GET) && count($_POST) != 0){
+    header('Location: http://localhost/php-nd/web-mechanika/09/?kiek='.count($_POST)); 
+    die;
+ }
 
-    $bodytext = '<body style=\'background-color: black;color:white;\'>';
-    echo $bodytext;
+if (isset($_GET['kiek'])){
+    echo'<body style=\'background-color: white;color:black;\'>';
+    echo '<h3> Kiek paspausta: ' . $_GET['kiek'] . '</h3>';
+} else {
+
+    echo '<body style=\'background-color: black;color:white;\'>';
 
     echo '<form action="http://localhost/php-nd/web-mechanika/09/" method="post">';
     $letters='ABCDEFGHIJ';
@@ -32,12 +29,12 @@ $kiek_paspausta = count($_POST);
         <input type="checkbox" name="' . $letters[$i] . '" value="'. $letters[$i] .'"><br>';
     }
     echo '<button type="submit">Push it</button>';
-    echo '</form></body>
-        </html>';
-    
+    echo '</form>';
 }
 ?>
         
+</body>
+</html>
 
     
 

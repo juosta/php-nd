@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>RED</h1>
-    <a href="?page=1">Blue</a>
+    <a href="?page=1">Change to blue</a>
 </body>
 </html>
 <?php

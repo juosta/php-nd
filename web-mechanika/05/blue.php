@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>BLUE</h1>
-<a href="?page=1">Red</a>
+<a href="?page=1">Change to red</a>
 </body>
 </html>
 

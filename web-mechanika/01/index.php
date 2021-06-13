@@ -4,7 +4,11 @@
 // perdavimo metodu perduodamu kintamuoju color=1. Padaryti taip, kad paspaudus
 // ant nuorodos su perduodamu kintamuoju fonas nusidažytų raudonai, o paspaudus
 // ant nuorodos be perduodamo kintamojo, vėl pasidarytų juodas.
-
+$color = "black";
+if (isset($_GET['color']))
+{ 
+    $color = "red";
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +17,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB Mechanika</title>
+    <title>1 uzduotis</title>
     <style>
     body{
-        background-color: black;
+        background-color: <?=$color?>;
     }
     a{
         display: block;
@@ -25,21 +29,7 @@
     </style>
 </head>
 <body>
-    <a href="./"><h2>WEB mechanika</h2></a>
-    <a href="?color=1"><h2>WEB mechanika su parametru</h2></a>
+    <a href="./index.php"><h2>Juodas fonas</h2></a>
+    <a href="./index.php?color=1"><h2>Raudonas fonas</h2></a>
 </body>
 </html>
-
-<?php
-if ($_GET['color'] == '1')
-{
-    echo '<style>
-    body{
-        background-color: red;
-    }
-    a{
-        display: block;
-        color: black;
-    }
-    </style>';
-}

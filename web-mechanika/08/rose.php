@@ -21,8 +21,7 @@
 <?php
 
 
-if($_SERVER["REQUEST_URI"]  == "/php-nd/web-mechanika/08/rose.php"){
-
-    header('Location: http://localhost/php-nd/web-mechanika/08/pink.php'); // get
-    die;
-}
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+        header('Location: http://localhost/php-nd/web-mechanika/08/pink.php'); // get
+        die;
+     }

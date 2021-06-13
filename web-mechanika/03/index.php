@@ -1,4 +1,11 @@
 <!-- Perdarykite 2 uždavinį taip, kad spalvą būtų galimą įrašyti į laukelį ir ją išsiųsti mygtuku GET metodu formoje. -->
+<?php
+  $color = "000000";
+  if(isset($_GET['color'])){
+        $color = $_GET['color'];
+  }
+    ?>
+
 <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -8,7 +15,7 @@
       <title>WEB Mechanika</title>
       <style>
       body{
-          background-color: black;
+          background-color: #<?=$color?>;
       }
       a{
           display: block;
@@ -23,7 +30,6 @@
       </style>
   </head>
   <body>
-      <a href="./"><h2>WEB mechanika</h2></a>
       <form action="http://localhost/php-nd/web-mechanika/03" method="get">
       <label for="spalva" class="form-item">Fono spalva</label><br>
       <input type="text" name='color' class="form-item"> <br>
@@ -32,16 +38,4 @@
   </body>
   </html>
   
-  <?php
-  if(isset($_GET['color'])){
-  $color = $_GET['color'];
-      echo "<style>
-      body{
-          background-color: #$color;
-      }
-      a{
-          display: block;
-          color: black;
-      }
-      </style>";
-    }
+  
