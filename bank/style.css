@@ -1,0 +1,41 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgb(246,244,169);
+    background: linear-gradient(133deg, rgba(246,244,169,1) 0%, rgba(45,140,253,1) 100%);
+
+}
+header img{
+    margin-left: 50px;
+}
+
+header nav{
+    line-height: 4.5;
+    margin-right: 50px;
+}
+
+header nav a{
+    text-decoration: none;
+    padding: 0 10px;
+    color: white;
+}
+
+.row table{
+    margin-top: 35px;
+    text-align: center;
+}
+
+.nauja-sask{
+    text-decoration: none;
+    float: right;
+    padding: 20px 0 ;
+}
+
+.plus{
+    padding: 0px 8px 4px 9px;
+    font-weight: 900;
+    font-size: 23px;
+    border: solid 2px;
+    border-radius: 19px;
+}

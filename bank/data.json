@@ -1,0 +1,53 @@
+{
+    "users": [
+        {
+            "userId": 1,
+            "name": "Dummy",
+            "surname": "One",
+            "accNo": "LT1231 1523 1568 8986 1200",
+            "personalNo": "40001010000",
+            "balance": 0
+        },
+        {
+            "userId": 2,
+            "name": "Asta",
+            "surname": "Juodelyte",
+            "accNo": "LT1231 1523 1568 8986 1201",
+            "personalNo": "40001010000",
+            "balance": 0
+        },
+        {
+            "userId": 3,
+            "name": "Ignas",
+            "surname": "Ignaitis",
+            "accNo": "LT1231 1523 1568 8986 1202",
+            "personalNo": "30001010020",
+            "balance": 0
+        },
+        {
+            "userId": 4,
+            "name": "Saulius",
+            "surname": "Saulaitis",
+            "accNo": "LT1231 1523 1568 8986 1203",
+            "personalNo": "30001010152",
+            "balance": 0
+        },
+        {
+            "userId": 5,
+            "name": "Monika",
+            "surname": "Monikiene",
+            "accNo": "LT1231 1523 1568 8986 1204",
+            "personalNo": "40001013215",
+            "balance": 0
+        },
+        {
+            "userId": 6,
+            "name": "Aine",
+            "surname": "Ainyte",
+            "accNo": "LT1231 1523 1568 8986 1205",
+            "personalNo": "40001019870",
+            "balance": 0
+        }
+        
+    ]
+}
