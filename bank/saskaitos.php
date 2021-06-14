@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +32,14 @@
                         <th style="width: 15%">Vardas</th>
                         <th style="width: 15%">Pavarde</th>
                         <th style="width: 25%">Sąskaitos nr.</th>
-                        <th style="width: 15%">Likutis</th>
-                        <th style="width: 30%">Valdymas</th>
+                        <th style="width: 10%">Likutis</th>
+                        <th style="width: 35%">Valdymas</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php include 'Users.php';
+                    <?php include 'read-file.php';
                     foreach($json_array['users'] as $value) :
+                        $userId = $value['userId'];
                         $name = $value['name'];
                         $surname = $value['surname'];
                         $accNo = $value['accNo'];
@@ -47,14 +49,21 @@
                             <td style="width: 15%"><?=$name?></td>
                             <td style="width: 15%"><?=$surname?></td>
                             <td style="width: 25%"><?=$accNo?></td>
-                            <td style="width: 15%"><?=$balance?></td>
-                            <td style="width: 30%">
+                            <td style="width: 10%"><?=$balance?></td>
+                            <td style="width: 35%">
                                 <a href="./papildyti.php"class="btn btn-primary">Pridėti lėšų</a>
                                 <a href="./nuskaiciuoti.php"class="btn btn-primary">Nuskaičiuoti lėšas</a>
-                                <button type="submit"class="btn btn-danger">Ištrinti</button>
+                                <form action="" method='post'>
+                                    <input type="hidden" name="id" value="<?=$userId?>">
+                                    <button type="submit"class="btn btn-danger">Ištrinti</button>
+                                    <?php if(isset($_POST['id'])) {
+                                        $_SESSION['deleteid'] = $_POST['id'];
+                                    }?>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach ?>
+                    <?php include 'deleteaccount.php'; ?>
                     </tbody>
                 </table>
             </div>
