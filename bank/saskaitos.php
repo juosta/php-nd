@@ -32,7 +32,7 @@
                         <th style="width: 15%">Vardas</th>
                         <th style="width: 15%">Pavarde</th>
                         <th style="width: 25%">Sąskaitos nr.</th>
-                        <th style="width: 10%">Likutis</th>
+                        <th style="width: 10%">Likutis, Eur</th>
                         <th style="width: 35%">Valdymas</th>
                         </tr>
                     </thead>
@@ -51,8 +51,11 @@
                             <td style="width: 25%"><?=$accNo?></td>
                             <td style="width: 10%"><?=$balance?></td>
                             <td style="width: 35%">
-                                <a href="./papildyti.php"class="btn btn-primary">Pridėti lėšų</a>
-                                <a href="./nuskaiciuoti.php"class="btn btn-primary">Nuskaičiuoti lėšas</a>
+                                <form action="./papildyti.php" method='post'>
+                                    <input type="hidden" name="addId" value="<?=$userId?>">
+                                    <button type="submit"class="btn btn-primary">Pridėti lėšų</button>
+                                </form>
+                                     <a href="./nuskaiciuoti.php"class="btn btn-primary">Nuskaičiuoti lėšas</a>
                                 <form action="" method='post'>
                                     <input type="hidden" name="id" value="<?=$userId?>">
                                     <button type="submit"class="btn btn-danger">Ištrinti</button>
@@ -64,6 +67,7 @@
                         </tr>
                     <?php endforeach ?>
                     <?php include 'deleteaccount.php'; ?>
+                    
                     </tbody>
                 </table>
             </div>

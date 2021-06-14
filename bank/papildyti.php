@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,71 @@
         </nav>
     </header>
     <main>
-    
+    <main class="container">
+        <br> <div class="row">
+            <h2 class="text-center">Pridėti lėšų</h2>
+        </div><br>
+
+        <?php include 'read-file.php';
+        _d($_POST, "POST");
+        if(isset($_POST['addId'])){
+            $_SESSION['addFundsId'] = $_POST['addId'];
+        }
+        _d($_SESSION, "Session");
+            $addToUserId = $_SESSION['addFundsId'];
+            _d($_GET, "GET");
+                //find user
+                foreach($json_array['users'] as $key => $user){
+                    if($user["userId"] == $addToUserId)
+                    {
+                        $_SESSION["addToUser"] = $key;
+                        break;
+                    }
+                }
+                $addToUser=$_SESSION["addToUser"];
+                _d($addToUser);
+                ?>
+
+            <div>
+                <table class="table">
+                    <tr>
+                        <td>Vardas</td>
+                        <td><?=$json_array['users'][$addToUser]['name']?> </td>
+                    </tr>
+                    <tr>
+                        <td>Pavardė</td>
+                        <td><?=$json_array['users'][$addToUser]['surname']?> </td>
+                    </tr>
+                    <tr>
+                        <td>Sąskaitos numeris</td>
+                        <td><?=$json_array['users'][$addToUser]['accNo']?> </td>
+                    </tr>
+                    <tr>
+                        <?php
+                        if( isset($_GET['amount'])){
+                        $amount = $_GET['amount'];
+                        $balance = $json_array['users'][$addToUser]['balance'];
+                        $json_array['users'][$addToUser]['balance'] = $balance + $amount;
+
+                        $data = fopen("data.json", "w") or die("Unable to open file!");
+                        $newJson = json_encode($json_array);
+                        fwrite($data, $newJson);
+                        fclose($data);
+                        header("Location: http://localhost/php-nd/bank/papildyti.php");
+                        die;
+                        }?>
+                        <td>Sąskaitos likutis, Eur</td>
+                        <td><?=$json_array['users'][$addToUser]['balance']?> </td>
+                    </tr>
+                </table>
+            </div>
+            <form action="" method="get" >
+            <label for="amount">Suma</label>
+            <input type="number" name="amount" class="form-control"><br>
+            <button type="submit" class="btn btn-primary">Pridėti lėšas</button>
+            </form>
+            <a href="./saskaitos.php" class="link-dark">Grįžti</a>
+            
     </main>
 </body>
 </html>
