@@ -1,5 +1,4 @@
-
-    <?php
+<?php
     $string = "";
     $data = fopen("data.json", "r+") or die("Unable to open file!");
     while(!feof($data)) {
@@ -13,25 +12,26 @@
     {
         _d($value['name']);
     }
-    // class Users {
-    //     // Properties
-    //     public $userId;
-    //     public $name;
-    //     public $surname;
-    //     public $accNo;
-    //     public $personalNo;
-    //     public $balance;
+    class User {
+        // Properties
+        public $userId;
+        public $name;
+        public $surname;
+        public $accNo;
+        public $personalNo;
+        public $balance;
       
 
-    //     function __construct($user) {
-    //         $this->userId = $user["userId"];
-    //         $this->name = $user["name"];
-    //         $this->surname = $user["surname"];
-    //         $this->accNo = $user["accNo"];
-    //         $this->personalNo = $user["personalNo"];
-    //         $this->balance = $user["balance"];
-    //       }
-    //     // Methods
+        function __construct($userId, $name, $surname, $accNo, $personalNo) {
+            $this->userId = $userId;
+            $this->name = $name;
+            $this->surname = $surname;
+            $this->accNo = $accNo;
+            $this->personalNo = $personalNo;
+            $this->balance = 0;
+          }
+
+        // Methods
         
-    //   }
+      }
     ?>

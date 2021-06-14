@@ -1,3 +1,16 @@
+<?php
+    if(!isset($_POST['name']) || empty($_POST['name']) or 
+    (!isset($_POST['surname']) || empty($_POST['surname'])) or 
+    (!isset($_POST['accNo']) || empty($_POST['accNo'])) or 
+    (!isset($_POST['personalNo']) || empty($_POST['personalNo']))
+    ){
+        $error = true;
+    }
+    // if($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($error)) {
+    // header("Location: http://localhost/php-nd/bank/saskaitos.php");
+    // die;
+    // }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +29,45 @@
         <a href="./" class="link-dark">Welcome!</a>
         </nav>
     </header>
-    <main>
+    <main class="container">
+        <br> <div class="row">
+            <h2 class="text-center">Pridėti naują sąskaitą</h2>
+        </div><br>
+        <div class="row">
+            <div class="col-12">
+                <form action="" class="form-control" method="post">
+                    <label for="name" class="form-label" >Vardas</label>
+                    <?php if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['name']) || empty($_POST['name']))) : ?>
+                        <p class="text-danger">Laukas privalomas</p>
+                    <?php endif ?>
+                    <input type="text" name='name' class="form-control"><br>
+
+                    <label for="surname" class="form-label">Pavarde</label>
+                    <?php if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['surname']) || empty($_POST['surname']))) : ?>
+                        <p class="text-danger">Laukas privalomas</p>
+                    <?php endif ?>
+                    <input type="text" name='surname' class="form-control"><br>
+
+                    <label for="accNo" class="form-label">Sąskaitos numeris</label>
+                    <?php if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['accNo']) || empty($_POST['accNo']))) : ?>
+                        <p class="text-danger">Laukas privalomas</p>
+                    <?php endif ?>
+                    <input type="text" name='accNo' class="form-control"><br>
+                    <label for="personalNo" class="form-label" >Asmens kodas</label>
+                    <?php if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['personalNo']) || empty($_POST['personalNo']))) : ?>
+                        <p class="text-danger">Laukas privalomas</p>
+                    <?php endif ?>
+                    <input type="text" name='personalNo' class="form-control"><br>
+                    <div class="col-auto">
+                         <button type="submit" class="btn btn-primary">Pridėti sąskaitą</button>
+                         <?php _d($_POST); ?>
+                    </div>
+                    <?php 
+                        include 'addnewaccount.php';
+                    ?>
+                </form>
+            </div>
+        </div>
     
     </main>
 </body>
