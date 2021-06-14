@@ -1,4 +1,11 @@
+<?php
 
+
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+        header('Location: http://localhost/php-nd/web-mechanika/08/pink.php'); // get
+        die;
+     }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +25,3 @@
 </body>
 </html>
 <pre>
-<?php
-
-
-if($_SERVER['REQUEST_METHOD'] == 'GET'){
-        header('Location: http://localhost/php-nd/web-mechanika/08/pink.php'); // get
-        die;
-     }

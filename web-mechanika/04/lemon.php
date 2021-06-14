@@ -1,3 +1,7 @@
+<?php
+    header('Location: http://localhost/php-nd/web-mechanika/04/orange.php'); // get
+    die;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +19,3 @@
     <h1>Lemon</h1>
 </body>
 </html>
-<?php
-    header('Location: http://localhost/php-nd/web-mechanika/04/orange.php'); // get
-    die;

@@ -1,6 +1,12 @@
 <!-- Padarykite juodą puslapį, kuriame būtų POST forma, mygtukas ir atsitiktinis kiekis (3-10) 
 checkbox su raidėm A,B,C… Padarykite taip, kad paspaudus mygtuką, fono spalva pasikeistų į baltą, 
 forma išnyktų ir atsirastų skaičius, rodantis kiek buvo pažymėta checkboksų (ne kurie, o kiek).  -->
+<?php
+ if(isset($_GET) && count($_POST) != 0){
+    header('Location: http://localhost/php-nd/web-mechanika/09/?kiek='.count($_POST)); 
+    die;
+ }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +16,6 @@ forma išnyktų ir atsirastų skaičius, rodantis kiek buvo pažymėta checkboks
     <title>9 uzduotis</title>
 </head>
 <?php
- if(isset($_GET) && count($_POST) != 0){
-    header('Location: http://localhost/php-nd/web-mechanika/09/?kiek='.count($_POST)); 
-    die;
- }
-
 if (isset($_GET['kiek'])){
     echo'<body style=\'background-color: white;color:black;\'>';
     echo '<h3> Kiek paspausta: ' . $_GET['kiek'] . '</h3>';

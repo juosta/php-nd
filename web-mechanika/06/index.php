@@ -1,5 +1,18 @@
 <?php
-
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    echo  '<style>
+     body{
+         background-color: #80ff00;
+     }
+     </style>';
+ }
+ if($_SERVER['REQUEST_METHOD'] == 'POST'){
+     echo  '<style>
+      body{
+          background-color: #ffff4d;
+      }
+      </style>';
+  }
 
 ?>
 <!-- Padarykite puslapį su dviem mygtukais. Mygtukus įdėkite į dvi skairtingas formas- vieną GET ir kitą POST.
@@ -23,23 +36,4 @@
     </form>
 </body>
 </html>
-<?php
 
-if($_SERVER['REQUEST_METHOD'] == 'GET'){
-   echo  '<style>
-    body{
-        background-color: #80ff00;
-    }
-    </style>';
-}
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    echo  '<style>
-     body{
-         background-color: #ffff4d;
-     }
-     </style>';
-
-    // 7 uzd Pakartokite 6 uždavinį. Papildykite jį kodu, kuris naršyklę po POST metodo peradresuotų tuo pačiu adresu (t.y. į patį save) jau GET metodu.
-    //  header('Location: http://localhost/php-nd/web-mechanika/06'); // get
-    //  die;
- }

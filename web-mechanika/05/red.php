@@ -1,3 +1,9 @@
+<?php
+if(isset($_GET['page'])==1){
+    header('Location: http://localhost/php-nd/web-mechanika/05/blue.php'); // get
+    die;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +15,9 @@
     body{
         background-color: red;
     }
+    a {
+        color: white;
+    }
     </style>
 </head>
 <body>
@@ -16,8 +25,3 @@
     <a href="?page=1">Change to blue</a>
 </body>
 </html>
-<?php
-if(isset($_GET['page'])==1){
-    header('Location: http://localhost/php-nd/web-mechanika/05/blue.php'); // get
-    die;
-}

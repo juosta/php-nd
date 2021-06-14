@@ -3,9 +3,9 @@
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $color = "80ff00";
     } elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $color = "ffff4d";
         header('Location: http://localhost/php-nd/web-mechanika/07'); // get
         die;
+        $color = "ffff4d";
       }
 ?>
 
