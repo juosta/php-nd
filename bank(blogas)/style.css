@@ -39,3 +39,7 @@ header nav a{
     border: solid 2px;
     border-radius: 19px;
 }
+
+.lesu-valdymas{
+    display: inline-block;
+}

@@ -47,14 +47,7 @@
             "accNo": "LT1231 1523 1568 8986 1205",
             "personalNo": "40001019870",
             "balance": 0
-        },
-        {
-            "userId": 7,
-            "name": "Paula",
-            "surname": "Paulaite",
-            "accNo": "LT1231 1523 1568 8986 3333",
-            "personalNo": "40001018888",
-            "balance": 0
         }
+        
     ]
 }

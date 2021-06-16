@@ -11,12 +11,16 @@
     
 </head>
 <body>
-    <header>
-        <img src="./img/bank_logo.png" alt="Logo" style='height: 70px;'>
-        <nav> 
-        <a href="./" class="link-light">Namai</a>
-        <a href="./" class="link-dark">Welcome!</a>
-        </nav>
+    <header class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="./img/bank_logo.png" alt="Logo" style='height: 70px;'>
+                <nav> 
+                <a href="./" class="link-light">Namai</a>
+                <a href="./" class="link-dark">Welcome!</a>
+            </nav>
+            </div>
+        </div>
     </header>
     <main>
         <div class="container">
@@ -50,13 +54,15 @@
                             <td style="width: 15%"><?=$surname?></td>
                             <td style="width: 25%"><?=$accNo?></td>
                             <td style="width: 10%"><?=$balance?></td>
-                            <td style="width: 35%">
-                                <form action="./papildyti.php" method='post'>
+                            <td style="width: 35%" >
+                                <form action="./papildyti.php" method='post' class="lesu-valdymas">
                                     <input type="hidden" name="addId" value="<?=$userId?>">
                                     <button type="submit"class="btn btn-primary">Pridėti lėšų</button>
                                 </form>
+                                <form action="" class="lesu-valdymas" >
                                      <a href="./nuskaiciuoti.php"class="btn btn-primary">Nuskaičiuoti lėšas</a>
-                                <form action="" method='post'>
+                                </form>
+                                <form action="" method='post' class="lesu-valdymas">
                                     <input type="hidden" name="id" value="<?=$userId?>">
                                     <button type="submit"class="btn btn-danger">Ištrinti</button>
                                     <?php if(isset($_POST['id'])) {

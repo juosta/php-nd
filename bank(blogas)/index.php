@@ -13,9 +13,9 @@
     <header>
         <img src="./img/bank_logo.png" alt="Logo" style='height: 70px;'>
         <nav> 
-        <a href="./" class="link-light">Namai</a>
+        <a href="./saskaitos.php" class="link-light">Namai</a>
         <a href="./" class="link-light">Registruotis</a>
-        <a href="./saskaitos.php" class="link-light">Prisijungti</a>
+        <a href="./" class="link-light">Prisijungti</a>
         </nav>
     </header>
     <main>
