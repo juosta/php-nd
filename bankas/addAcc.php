@@ -10,13 +10,8 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header>
-        <img src="./img/bank_logo.png" alt="Logo" style='height: 70px;'>
-        <nav> 
-        <a href="./" class="link-light">Namai</a>
-        <a href="./" class="link-dark">Welcome!</a>
-        </nav>
-    </header>
+    <?php include __DIR__ . '/header.php' ?>
+    <?php require __DIR__ . '/msg.php' ?>
     <main class="container">
         <br> <div class="row">
             <h2 class="text-center">Pridėti naują sąskaitą</h2>
@@ -25,33 +20,15 @@
             <div class="col-12">
                 <form action="" class="form-control" method="post">
                     <label for="name" class="form-label" >Vardas</label>
-                    <?php if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['name']) || empty($_POST['name']))) : ?>
-                        <p class="text-danger">Laukas privalomas</p>
-                    <?php endif ?>
-                    <?php if(isset($_POST['name']) && strlen($_POST['name']) <= 3) : ?>
-                        <p class="text-danger">Vardas turi būti ilgesnis nei 3 simboliai</p>
-                    <?php endif ?>
                     <input type="text" name='name' class="form-control"><br>
 
                     <label for="surname" class="form-label">Pavarde</label>
-                    <?php if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['surname']) || empty($_POST['surname']))) : ?>
-                        <p class="text-danger">Laukas privalomas</p>
-                    <?php endif ?>
-                    <?php if(isset($_POST['surname']) && strlen($_POST['surname']) <= 3) : ?>
-                        <p class="text-danger">Pavardė turi būti ilgesnis nei 3 simboliai</p>
-                    <?php endif ?>
                     <input type="text" name='surname' class="form-control"><br>
 
                     <label for="accNo" class="form-label">Sąskaitos numeris</label>
-                       <?php $genAccNo = sprintf("%02s",rand(0,99)) . ' ' . sprintf("%04s",rand(0,9999)) . ' ' . sprintf("%04s",rand(0,9999)) . ' ' . sprintf("%04s",rand(0,9999)) . ' ' . sprintf("%04s",rand(0,9999))?>
+                    <?php require __DIR__. '/generateAccNo.php'; ?>
                     <input type="text" name='accNo' value = "LT<?= $genAccNo ?>" placeholder="LT<?= $genAccNo ?>" class="form-control" readonly><br>
                     <label for="personalNo" class="form-label" >Asmens kodas</label>
-                    <?php if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['personalNo']) || empty($_POST['personalNo']))) : ?>
-                        <p class="text-danger">Laukas privalomas</p>
-                    <?php endif ?>
-                    <?php if (isset($_POST['personalNo']) && (strlen($_POST['personalNo']) != 11 || preg_replace('/[^0-9]/', '', $_POST['personalNo'] != 11))) :?>
-                        <p class="text-danger">Neteisingas asmens kodas</p>
-                    <?php endif ?>
                     <input type="text" name='personalNo' class="form-control"><br>
                     <div class="col-auto">
                          <button type="submit" class="btn btn-primary">Pridėti sąskaitą</button>

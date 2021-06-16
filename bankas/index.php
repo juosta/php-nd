@@ -10,10 +10,21 @@ if (!file_exists(__DIR__.'/data.json')) {
 }
 $users = json_decode( file_get_contents(__DIR__.'/data.json'), 1);
 
-if(isset($_SESSION['message'])) {
-    echo $_SESSION['message'];
+function getMessage()
+{
+    if (!isset($_SESSION['message'])) {
+        return false;
+    }
+    $msg = $_SESSION['message'];
     unset($_SESSION['message']);
+    return $msg;
 }
+
+function setMessage(string $msg, string $type)
+{
+    $_SESSION['message'] = "<div class=\"alert alert-$type\" role=\"alert\">$msg</div>";
+}
+
 // 1. Saskaitu saraso atvaizdavimas GET
 if (!isset($_GET['action']) && $_SERVER['REQUEST_METHOD'] == 'GET') {
     require __DIR__. '/saskaitos.php';

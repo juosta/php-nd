@@ -10,18 +10,9 @@
     
 </head>
 <body>
-    <header>
-        <div>
-            <img src="./img/bank_logo.png" alt="Logo" style='height: 70px;'>
-            <h2>TAVO BANKAS</h2>
-        </div>
-        <nav> 
-        <a href="./" class="link-light">Namai</a>
-        <a href="./" class="link-dark">Welcome!</a>
-        </nav>
-    </header>
-    <main>
-        <div class="container">
+    <?php include __DIR__ . '/header.php' ?>
+    <?php include __DIR__ . '/msg.php' ?>
+    <main class="container">
             <div class="row">
                 <div class="col-12">
                     <a href="?action=addAcc" class="link-primary nauja-sask"><span class="plus">+</span> Pridėti naują sąskaitą</a>
@@ -69,7 +60,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </main>
 
 

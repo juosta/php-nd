@@ -10,14 +10,8 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header>
-        <img src="./img/bank_logo.png" alt="Logo" style='height: 70px;'>
-        <nav> 
-        <a href="./" class="link-light">Namai</a>
-        <a href="./" class="link-dark">Welcome!</a>
-        </nav>
-    </header>
-    <main>
+    <?php include __DIR__ . '/header.php' ?>
+    <?php include __DIR__ . '/msg.php' ?>
     <main class="container">
         <br> <div class="row">
             <h2 class="text-center">Pridėti lėšų</h2>
