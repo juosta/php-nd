@@ -16,11 +16,12 @@ header .container{
 header img{
     float: left;
     margin-left: 50px;
+    border-radius: 12px;
 }
 header h2 {
     position: absolute;
-    top: 17px;
-    left: 173px;
+    top: 15px;
+    left: 150px;
 }
 
 header nav{
@@ -56,4 +57,8 @@ header nav a{
 
 .lesu-valdymas{
     display: inline-block;
+}
+
+.login{
+    margin-top: 30px;
 }

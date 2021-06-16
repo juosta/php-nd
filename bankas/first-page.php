@@ -13,9 +13,15 @@
     <header>
         <img src="./img/bank_logo.png" alt="Logo" style='height: 70px;'>
         <nav> 
-        <a href="./saskaitos.php" class="link-light">Namai</a>
-        <a href="./" class="link-light">Registruotis</a>
-        <a href="./" class="link-light">Prisijungti</a>
+        <a href="./" class="link-light">Namai</a>
+        <?php if (!isset($_SESSION['logged'])) : ?>
+            <a href="./login.php">Login</a>
+        <?php else : ?>
+            <a href="./login.php?logout">Logout</a>
+        </div>
+        <?php endif ?>
+        <a href="./img/bank_logo.png" class="link-light">Registruotis</a>
+        <a href="./img/bank_logo.png" class="link-light">Prisijungti</a>
         </nav>
     </header>
     <main>
