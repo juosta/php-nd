@@ -23,20 +23,19 @@ if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['personalNo']) || em
     setMessage("Laukas privalomas","danger");
     $error = true;
 }
-if (isset($_POST['personalNo']) && (strlen($_POST['personalNo']) != 11 || strlen($personal) != 11)) {
-    setMessage("Neteisingas asmens kodas","danger");
-    $error = true;
-}
+require  __DIR__.'./personalNoValidation.php';
 
-foreach($users as $user){
-    if($_POST['personalNo'] == $user['personalNo']){
-        $error = true;
-        setMessage("Vartotojas su tokiu asmens kodu jau egzistuoja.", "danger");
-        break;
-    }
-}
 if(!isset($error)){   
-    $newUser = ['userId'=> rand(10,100),'name' => $_POST['name'],'surname'=> $_POST['surname'], 'accNo'=>$_POST['accNo'], 'personalNo' => $_POST['personalNo'], 'balance'=> 0];
+    function setUserId(){
+        $id = rand(1000,10000);
+        foreach($users as $user){
+            if($id == $user['userId']){
+                setUserId();
+            }
+        }
+        return $id;
+    }
+    $newUser = ['userId'=> setUserId(),'name' => $_POST['name'],'surname'=> $_POST['surname'], 'accNo'=>$_POST['accNo'], 'personalNo' => $_POST['personalNo'], 'balance'=> 0];
     $users[] = $newUser;
     file_put_contents(__DIR__.'/data.json', json_encode($users));
     setMessage("Sąskaita sėkmingai sukurta.","success");

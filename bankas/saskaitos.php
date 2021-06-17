@@ -7,6 +7,7 @@
     <title>Sąskaitų sąrašas | Tavo bankas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://use.fontawesome.com/653213e940.js"></script>
     
 </head>
 <body>
@@ -15,7 +16,7 @@
     <main class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="?action=addAcc" class="link-primary nauja-sask"><span class="plus">+</span> Pridėti naują sąskaitą</a>
+                    <a href="?action=addAcc" class="link-primary nauja-sask"><i class="fa fa-plus-circle" aria-hidden="true"></i> Pridėti naują sąskaitą</a>
                 </div>
             </div>
             <div class="row">
@@ -23,7 +24,7 @@
                     <thead>
                         <tr>
                         <th style="width: 15%">Vardas</th>
-                        <th style="width: 15%">Pavarde</th>
+                        <th style="width: 15%">Pavardė</th>
                         <th style="width: 25%">Sąskaitos nr.</th>
                         <th style="width: 10%">Likutis, Eur</th>
                         <th style="width: 35%">Valdymas</th>
