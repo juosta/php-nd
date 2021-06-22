@@ -5,8 +5,8 @@ $personal = preg_replace('/[^0-9]/', '', $_POST['personalNo']);
     setMessage("Laukas privalomas","danger");
     $error = true;
  }
- if(isset($_POST['name']) && strlen($_POST['name']) <= 3){
-    setMessage("Vardas turi būti ilgesnis nei 3 simboliai","danger");
+ if(isset($_POST['name']) && strlen($_POST['name']) < 3){
+    setMessage("Vardas turi būti ne trumpesnis nei 3 simboliai","danger");
     $error = true;
  }
 
@@ -15,8 +15,8 @@ if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['surname']) || empty
     $error = true;
 }
 
-if(isset($_POST['surname']) && strlen($_POST['surname']) <= 3) {
-    setMessage("Pavardė turi būti ilgesnė nei 3 simboliai","danger");
+if(isset($_POST['surname']) && strlen($_POST['surname']) < 3) {
+    setMessage("Pavardė turi būti ne trumpesnė nei 3 simboliai","danger");
     $error = true;
 }
 if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['personalNo']) || empty($_POST['personalNo']))){

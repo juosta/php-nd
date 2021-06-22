@@ -14,43 +14,40 @@
     <?php include __DIR__ . '/msg.php' ?>
     <main class="container">
         <br> <div class="row">
-            <h2 class="text-center">Pridėti lėšų</h2>
+            <h2 class="text-center">Nuskaičiuoti lėšas</h2>
         </div><br>
 
             <div>
             <?php $id = $_GET['id'] ?? 0 ;
-            _d($id,"id");
-            foreach($users as $key => $user){
-                if($user['userId']==$id){
-                    $id=$key;
-                    break;
-                }
-            }
-            ?>
-                <table class="table">
-                    <tr>
-                        <td>Vardas</td>
-                        <td><?=$users[$key]['name']?> </td>
-                    </tr>
-                    <tr>
-                        <td>Pavardė</td>
-                        <td><?=$users[$key]['surname']?> </td>
-                    </tr>
-                    <tr>
-                        <td>Sąskaitos numeris</td>
-                        <td><?=$users[$key]['accNo']?> </td>
-                    </tr>
-                    <tr>
-                        <td>Sąskaitos likutis, Eur</td>
-                        <td><?=$users[$key]['balance']?> </td>
-                    </tr>
-                </table>
-            </div>
-            <form action="?action=withdraw&id=<?=$key?>" method="post" >
-            <label for="amount">Suma</label>
-            <input type="number" name="amount" class="form-control"><br>
-            <button type="submit" class="btn btn-primary">Nuskaičiuoti lėšas</button>
-            </form>
+            _d($id,"id"); ?>
+            <?php foreach($users as $key => $user) : ?>
+                <?php if($user['userId']==$id) : ?>
+                    <table class="table">
+                        <tr>
+                            <td>Vardas</td>
+                            <td><?=$user['name']?> </td>
+                        </tr>
+                        <tr>
+                            <td>Pavardė</td>
+                            <td><?=$user['surname']?> </td>
+                        </tr>
+                        <tr>
+                            <td>Sąskaitos numeris</td>
+                            <td><?=$user['accNo']?> </td>
+                        </tr>
+                        <tr>
+                            <td>Sąskaitos likutis, Eur</td>
+                            <td><?=$user['balance']?> </td>
+                        </tr>
+                    </table>
+                </div>
+                <form action="?action=withdraw&id=<?=$id?>" method="post" >
+                <label for="amount">Suma</label>
+                <input type="text" name="amount" class="form-control"><br>
+                <button type="submit" class="btn btn-primary">Nuskaičiuoti lėšas</button>
+                </form>
+                <?php endif ?>
+            <?php endforeach ?>
             <a href="./" class="link-dark">Grįžti</a>
             
     </main>

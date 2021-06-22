@@ -31,7 +31,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php _d($users, "users masyvas"); ?>
                     <?php 
                         usort($users, function($a, $b) {
                             return $a['surname'] <=> $b['surname'];
