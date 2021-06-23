@@ -8,11 +8,10 @@ class Kibiras1 {
     }
 
     public function pridetiDaugAkmenu($kiekis){
-        if($kiekis < 0){
-            print("Bandyta prideti minusini skaiciu.<br>");
+        if($kiekis < 0 || !is_integer($kiekis)){
             return;
         }
-        return $this->akmenukiekis+=(int)$kiekis;
+        return $this->akmenukiekis+=$kiekis;
 
     }
 

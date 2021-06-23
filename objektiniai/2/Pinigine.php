@@ -7,7 +7,6 @@ class Pinigine {
 
     public function ideti($kiekis){
         if($kiekis<0){
-            echo "Bandyta prideti minusinis skaicius<br>";
             return;
         }
         if($kiekis <=2 ){
