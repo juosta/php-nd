@@ -28,7 +28,7 @@
 
                     <label for="accNo" class="form-label">Sąskaitos numeris</label>
                     <?php require __DIR__. '/generateAccNo.php'; ?>
-                    <input type="text" name='accNo' value = "LT<?= $genAccNo ?>" placeholder="LT<?= $genAccNo ?>" class="form-control" readonly><br>
+                    <input type="text" name='accNo' value = "LT<?= $genAccNo ?>" class="form-control" readonly><br>
                     <label for="personalNo" class="form-label" >Asmens kodas</label>
                     <input type="text" name='personalNo' class="form-control"><br>
                     <div class="col-auto">

@@ -15,7 +15,7 @@ if (isset($_POST['personalNo']) && (strlen($_POST['personalNo']) != 11 || strlen
 
     $firstChar = substr($_POST['personalNo'], 0,1);
     $yearChar = substr($_POST['personalNo'], 1,2);
-    if($yearChar <= substr(date("Y"),2,2)) {
+    if($firstChar == 5 || $firstChar ==6) {
         $year = "20$yearChar";
     } else {
         $year = "19$yearChar";
