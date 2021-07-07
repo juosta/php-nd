@@ -1,7 +1,6 @@
     
     <?php $pageName = "Sąskaitų sąrašas"; ?>
     <?php include __DIR__ . '/top.php' ?>
-    
             <div class="row">
                 <div class="col-12">
                     <a href="<?= URL ?>create-acc" class="link-primary nauja-sask"><i class="fa fa-plus-circle" aria-hidden="true"></i> Pridėti naują sąskaitą</a>

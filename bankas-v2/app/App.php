@@ -46,7 +46,27 @@ class App {
 
         array_shift($uri);
 
+        
+//----------------------------------------------------------------------------------------------
+        //LOGIN
 
+        if ('login' == $uri[0]) {
+            if ('GET' == $_SERVER['REQUEST_METHOD']) {
+                return (new UserController)->index();
+            }
+            else {
+                return (new UserController)->login();
+            }
+        }    
+        if ('logoff' == $uri[0]) {
+            if ('GET' == $_SERVER['REQUEST_METHOD']) {
+                return (new UserController)->logoff();
+            }
+        }  
+        if (!isset($_SESSION['logged'])) {
+            return (new UserController)->index();
+        }       
+//----------------------------------------------------------------------------------------------
 
         if ('create-acc' == $uri[0]) {
             if ('GET' == $_SERVER['REQUEST_METHOD']) {
