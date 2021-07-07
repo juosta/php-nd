@@ -71,47 +71,18 @@ class AccountController {
     {
         return App::view('addAcc');
     }
-    public function doCreate()
-    {
-        $personal = preg_replace('/[^0-9]/', '', $_POST['personalNo']);
-        if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['name']) || empty($_POST['name']))){
-            setMessage("Laukas privalomas","danger");
-            $error = true;
-         }
-         if(isset($_POST['name']) && strlen($_POST['name']) < 3){
-            setMessage("Vardas turi būti ne trumpesnis nei 3 simboliai","danger");
-            $error = true;
-         }
-        
-        if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['surname']) || empty($_POST['surname']))){
-            setMessage("Laukas privalomas","danger");
-            $error = true;
-        }
-        
-        if(isset($_POST['surname']) && strlen($_POST['surname']) < 3) {
-            setMessage("Pavardė turi būti ne trumpesnė nei 3 simboliai","danger");
-            $error = true;
-        }
-        if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['personalNo']) || empty($_POST['personalNo']))){
-            setMessage("Laukas privalomas","danger");
-            $error = true;
-        }
-        isValidPersonalNo($_POST['personalNo']);
-        
-        if(!isset($error) && isValidPersonalNo($_POST['personalNo'])){   
-            setMessage("Sąskaita sėkmingai sukurta.","success");
-            save();
-        } else {
-            App::redirect("addAcc");
-            die;
-        }
-    }
 
     public function save()
     {
-        $user = ['userId'=> self::setUserId(),'name' => $_POST['name'],'surname'=> $_POST['surname'], 'accNo'=>$_POST['accNo'], 'personalNo' => $_POST['personalNo'], 'balance'=> 0];
-        Json::getJson()->create($user);
-        App::redirect();
+        if(self::isValidPersonalNo($_POST['personalNo'])){   
+            setMessage("Sąskaita sėkmingai sukurta.","success");
+            $user = ['userId'=> self::setUserId(),'name' => $_POST['name'],'surname'=> $_POST['surname'], 'accNo'=>$_POST['accNo'], 'personalNo' => $_POST['personalNo'], 'balance'=> 0];
+            Json::getJson()->create($user);
+            App::redirect();
+        } else {
+            App::redirect("create-acc");
+        }
+
     }
 
     public function setUserId(){
@@ -127,14 +98,38 @@ class AccountController {
 
     public function isValidPersonalNo($no){
         $users = Json::getJson()->showAll();
+        $personal = preg_replace('/[^0-9]/', '', $_POST['personalNo']);
+        if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['name']) || empty($_POST['name']))){
+            App::setMessage("Laukas privalomas","danger");
+            return false;
+         }
+         if(isset($_POST['name']) && strlen($_POST['name']) < 3){
+            App::setMessage("Vardas turi būti ne trumpesnis nei 3 simboliai","danger");
+            return false;
+         }
+        
+        if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['surname']) || empty($_POST['surname']))){
+            App::setMessage("Laukas privalomas","danger");
+            return false;
+        }
+        
+        if(isset($_POST['surname']) && strlen($_POST['surname']) < 3) {
+            App::setMessage("Pavardė turi būti ne trumpesnė nei 3 simboliai","danger");
+            return false;
+        }
+        if(($_SERVER['REQUEST_METHOD'] == 'POST') && (!isset($_POST['personalNo']) || empty($_POST['personalNo']))){
+            App::setMessage("Laukas privalomas","danger");
+            return false;
+        }
+
         foreach($users as $user){
             if($no == $user['personalNo']){
-                setMessage("Vartotojas su tokiu asmens kodu jau egzistuoja.", "danger");
+                App::setMessage("Vartotojas su tokiu asmens kodu jau egzistuoja.", "danger");
                 return false;
             }
         }
         if (isset($no) && (strlen($no) != 11 || strlen($personal) != 11)) {
-            setMessage("Neteisingas asmens kodas, ilgis","danger");
+            App::setMessage("Neteisingas asmens kodas, ilgis","danger");
             return false;
         } else {
 
@@ -151,12 +146,12 @@ class AccountController {
 
             if(!preg_match('/[34569]/', $firstChar)){ // jei prasideda 9, visi like skaiciai gali buti bet kokie
 
-                setMessage("Neteisingas asmens kodas, pirmas simbolis","danger");
+                App::setMessage("Neteisingas asmens kodas, pirmas simbolis","danger");
                 return false;
             } 
             if(preg_match('/[3456]/', $firstChar)) {
                 if(!checkdate($monthChar, $dayChar, $year) && ($monthChar != "00" || $monthChar != "00")) { // data- menuo ir diena (gali buti nuliai)
-                    setMessage("Neteisingas asmens kodas, data","danger");
+                    App::setMessage("Neteisingas asmens kodas, data","danger");
                     return false;
                 }
             }   
@@ -179,7 +174,7 @@ class AccountController {
                 echo $S;
                 $S = ($A*3 + $B*4 + $C*5 + $D*6 + $E*7 + $F*8 + $G*9 + $H*1 + $I*2 + $J*3) % 11;
                 if($S != $K || !($S == 10 && $K ==0)){
-                    setMessage("Neteisingas asmens kodas, kontrolinis sk. $S","danger");
+                    App::setMessage("Neteisingas asmens kodas, kontrolinis sk. $S","danger");
                     return false;
                 }
             }

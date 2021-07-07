@@ -1,5 +1,5 @@
 <?php $pageName = "Prisijungti"; ?>
-<?php include __DIR__ . '/top.php' ?>
+<?php include DIR. 'views/top.php' ?>
     <div class="row login">
         <div class="col-12">
             <h1>Prisijungti</h1>
