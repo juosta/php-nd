@@ -1,12 +1,10 @@
-<?php namespace Bank; ?>
     <?php $pageName = "Nuskaičiuoti lėšas"; ?>
     <?php include DIR. 'views/top.php' ?>
         <br> <div class="row">
             <h2 class="text-center">Nuskaičiuoti lėšas</h2>
         </div><br>
             <div>
-            <?php $user =  Json::getJson()->show($id);?>
-                    <table class="table">
+                <table class="table">
                         <tr>
                             <td>Vardas</td>
                             <td><?=$user['name']?> </td>

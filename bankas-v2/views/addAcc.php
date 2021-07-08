@@ -1,6 +1,6 @@
 
 <?php $pageName = "Pridėti naują sąskaitą"; ?>
-    <?php include __DIR__ . '/top.php' ?>
+<?php include DIR. 'views/top.php' ?>
         <br> <div class="row">
             <h2 class="text-center">Pridėti naują sąskaitą</h2>
         </div><br>

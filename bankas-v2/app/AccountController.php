@@ -10,7 +10,7 @@ class AccountController {
 
     public function addFunds($id)
     {
-        return App::view('addFunds', ['id' => $id]);
+        return App::view('addFunds', ['id' => $id, 'user' => Json::getJson()->show($id)]);
     }
 
     public function doAddFunds($id)
@@ -31,7 +31,7 @@ class AccountController {
 
     public function withdraw($id)
     {
-        return App::view('withdraw', ['id' => $id]);
+        return App::view('withdraw', ['id' => $id, 'user' => Json::getJson()->show($id)]);
     }
 
     public function doWithdraw($id)
