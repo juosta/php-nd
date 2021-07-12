@@ -75,7 +75,7 @@ class AccountController {
     public function save()
     {
         if(self::isValidPersonalNo($_POST['personalNo'])){   
-            setMessage("Sąskaita sėkmingai sukurta.","success");
+            App::setMessage("Sąskaita sėkmingai sukurta.","success");
             $user = ['userId'=> self::setUserId(),'name' => $_POST['name'],'surname'=> $_POST['surname'], 'accNo'=>$_POST['accNo'], 'personalNo' => $_POST['personalNo'], 'balance'=> 0];
             Json::getJson()->create($user);
             App::redirect();
