@@ -1,0 +1,68 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    /* background: rgb(246,244,169);
+    background: linear-gradient(133deg, rgba(246,244,169,1) 0%, rgba(45,140,253,1) 100%); */
+    background-image: url("./img/header.jpg");
+    background-repeat: no-repeat;
+    background-position: revert;
+    background-size: cover;
+    color: white;
+}
+header .container{
+    position: relative;
+}
+header img{
+    float: left;
+    margin-left: 50px;
+    border-radius: 12px;
+}
+header h2 {
+    position: absolute;
+    top: 15px;
+    left: 150px;
+}
+
+header nav{
+    float: right;
+    line-height: 4.5;
+    margin-right: 50px;
+}
+
+header nav a{
+    text-decoration: none;
+    padding: 0 10px;
+    color: white;
+}
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+
+.row table{
+    margin-top: 35px;
+    text-align: center;
+}
+
+.nauja-sask{
+    text-decoration: none;
+    float: right;
+    padding: 20px 0 ;
+}
+
+.lesu-valdymas{
+    display: inline-block;
+}
+
+.login{
+    margin-top: 30px;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+

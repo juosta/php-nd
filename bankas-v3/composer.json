@@ -1,0 +1,17 @@
+{
+    "name": "tbulo/bankas-v3",
+    "description": "bank app",
+    "authors": [
+        {
+            "name": "juosta",
+            "email": "79445286+juosta@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bank\\": "app",
+            "App\\DB\\": "app"
+        }
+    },
+    "require": {}
+}
